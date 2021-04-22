@@ -221,6 +221,8 @@ if __name__ == '__main__':
     # message = decrypt(key, ciphertext)
     # print('Odszyfrowana wiadomość: ', message)
     
+
+
     print("Możliwe, że długość klucza jest równa NWD większości z tych liczb:")
     print(findKeyLength_Kasiski(ciphertext, polishLetterPossibilities))
     
@@ -239,7 +241,7 @@ if __name__ == '__main__':
     mostPossibleKey = input("Wprowadź klucz: ").upper()
 
     print('Szyfrogram:')
-    print(encrypt(possibleKey, ciphertext))
+    print(decrypt(mostPossibleKey, ciphertext))
 
     
 
