@@ -105,7 +105,7 @@ def findKeyLength_Friedman(ciphertext, maxValueMultiplicator = 0.8):
     # for the second half of the list, the numbers will be much lower, so I'm not gonna use them
     halfLength = len(similarity)//2
     del similarity[halfLength:]
-    
+    print(similarity)
     # getting the highest values from the list
     maxValue = max(similarity)
     maxValue = maxValue * maxValueMultiplicator
@@ -214,7 +214,7 @@ if __name__ == '__main__':
     ciphertext = readFile()
     print('Deszyfrowanie...')
 
-    # keyLength = findKeyLength_Friedman(ciphertext, 0.9 )
+    # keyLength = findKeyLength_Friedman( ciphertext, 0.9 )
     # print('Odzyskana długość klucza: ', keyLength)
     # key = findKey(keyLength, ciphertext, polishLetterPossibilities)
     # print('Odzyskany klucz: ', key)
