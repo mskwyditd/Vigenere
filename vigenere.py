@@ -15,7 +15,7 @@ ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '
 
 polishLetterPossibilities = { 'A':8.91, 'B':1.47, 'C':3.96, 'D':3.25, 'E':7.66, 'F':0.3, 'G':1.42,
 'H':1.08, 'I':8.21, 'J':2.28, 'K':3.51, 'L':2.1, 'M':2.8, 'N':5.52, 'O':7.75, 'P':3.13, 'Q':0.14,
-'R':4.69, 'S':4.32, 'T':3.98, 'U':2.5, 'V':0.04, 'W':4.65, 'X':0.02, 'Y':3.76, 'Z':5.64,  ' ':4.0 }
+'R':4.69, 'S':4.32, 'T':3.98, 'U':2.5, 'V':0.04, 'W':4.65, 'X':0.02, 'Y':3.76, 'Z':5.64,  ' ':12.0 }
 
 letter_to_nr = dict(zip(ALPHABET, range(len(ALPHABET))))
 nr_to_letter = dict(zip(range(len(ALPHABET)), ALPHABET))
@@ -211,21 +211,20 @@ def bruteForceCaesar(ciphertext):
 
 if __name__ == '__main__':
     print('Czytanie pliku...')
-    ciphertext = readFile()
-    print('Deszyfrowanie...')
+    ciphertext = readFile(fileName='Vigenere.txt')
+    # print('Deszyfrowanie...')
 
-    # keyLength = findKeyLength_Friedman( ciphertext, 0.9 )
-    # print('Odzyskana długość klucza: ', keyLength)
-    # key = findKey(keyLength, ciphertext, polishLetterPossibilities)
-    # print('Odzyskany klucz: ', key)
-    # message = decrypt(key, ciphertext)
-    # print('Odszyfrowana wiadomość: ', message)
+    # # # keyLength = findKeyLength_Friedman( ciphertext, 0.9 )
+    # # # print('Odzyskana długość klucza: ', keyLength)
+    # # # key = findKey(keyLength, ciphertext, polishLetterPossibilities)
+    # # # print('Odzyskany klucz: ', key)
+    # # # message = decrypt(key, ciphertext)
+    # # # print('Odszyfrowana wiadomość: ', message)
     
 
 
     print("Możliwe, że długość klucza jest równa NWD większości z tych liczb:")
     print(findKeyLength_Kasiski(ciphertext, polishLetterPossibilities))
-    
 
     possibleKeyLength = int(input("Jaki długi jest według Ciebie klucz: "))
 
@@ -240,8 +239,15 @@ if __name__ == '__main__':
     print("Możliwy klucz: ", possibleKey)
     mostPossibleKey = input("Wprowadź klucz: ").upper()
 
+
+
+    # # print('Czytanie klucza...')
+    # # mostPossibleKey = readFile(fileName='key.txt').upper()
+
+    
     print('Szyfrogram:')
     print(decrypt(mostPossibleKey, ciphertext))
+        
 
     
 
